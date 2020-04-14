@@ -9,10 +9,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { setMovies } from '../../actions/actions';
 
 // *Pending
-// import MoviesList from '../movies-list/movies-list';
-// import { MovieView } from '../movie-view/movie-view';
-// import { LoginView } from '../login-view/login-view';
-// import { RegistrationView } from '../registration-view/registration-view';
+import MovieList from '../movie-list/movie-list';
+import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 class MainView extends React.Component {
 

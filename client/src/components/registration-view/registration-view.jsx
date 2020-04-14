@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 import './registration-view.scss';
 
 export function RegistrationView(props) {
-    const [username, createUsername] = useState('');
-    const [password, createPassword] = useState('');
-    const [email, createEmail] = useState('');
-    const [birthday, createDob] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [birthdate, setBirthDate] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ export function RegistrationView(props) {
             Username: username,
             Password: password,
             Email: email,
-            Birthday: birthday
+            Birthday: birthdate
         })
             .then(response => {
                 const data = response.data;
@@ -30,7 +30,7 @@ export function RegistrationView(props) {
                 window.open('/', '_self'); // Open in current tab 
             })
             .catch(error => {
-                console.log('Registration error. Username must be a minimum of five characters in length')
+                console.log(error)
                 return alert('Registration failure. Please select a username with a minimum of 5 characters');
             });
     };
@@ -57,7 +57,7 @@ export function RegistrationView(props) {
                     </Form.Group>
                     <Form.Group controlId="formBasicDob">
                         <Form.Label>Date of Birth</Form.Label>
-                        <Form.Control type="date" value={birthday} onChange={e => setBirthDate(e.target.value)} />
+                        <Form.Control type="date" value={birthdate} onChange={e => setBirthDate(e.target.value)} />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
                         Sign-up
